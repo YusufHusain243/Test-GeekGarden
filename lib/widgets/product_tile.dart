@@ -12,6 +12,7 @@ class ProductTile extends StatelessWidget {
     this.category,
     this.image,
     this.rate,
+    required this.page,
   }) : super(key: key);
 
   final String? title;
@@ -20,6 +21,7 @@ class ProductTile extends StatelessWidget {
   final String? category;
   final String? image;
   final String? rate;
+  final String? page;
 
   @override
   Widget build(BuildContext context) {

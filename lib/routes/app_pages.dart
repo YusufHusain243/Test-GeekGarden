@@ -1,5 +1,6 @@
 import 'package:geek_garden/bindings/add_binding.dart';
 import 'package:geek_garden/bindings/edit_binding.dart';
+import 'package:geek_garden/bindings/product_api_binding.dart';
 import 'package:geek_garden/pages/add_product.dart';
 import 'package:geek_garden/pages/edit_product.dart';
 import 'package:geek_garden/pages/product_page.dart';
@@ -26,6 +27,7 @@ class AppPage {
     GetPage(
       name: RouteName.productApi,
       page: () => const ProductApiPage(),
+      binding: ProductApiBinding(),
     ),
   ];
 }
