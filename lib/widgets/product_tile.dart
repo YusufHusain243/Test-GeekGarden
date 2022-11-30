@@ -45,12 +45,19 @@ class ProductTile extends StatelessWidget {
               topLeft: Radius.circular(20),
               bottomLeft: Radius.circular(20),
             ),
-            child: Image.file(
-              File(image.toString()),
-              width: 120,
-              height: 120,
-              fit: BoxFit.cover,
-            ),
+            child: page == 'product'
+                ? Image.file(
+                    File(image.toString()),
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    image.toString(),
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                  ),
           ),
           const SizedBox(
             width: 12,
