@@ -10,7 +10,6 @@ class ProductTile extends StatelessWidget {
     this.category,
     this.image,
     this.rate,
-    this.count,
   }) : super(key: key);
 
   final String? title;
@@ -18,8 +17,7 @@ class ProductTile extends StatelessWidget {
   final String? description;
   final String? category;
   final String? image;
-  final int? rate;
-  final int? count;
+  final String? rate;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +25,9 @@ class ProductTile extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: backgroundColor,
+        border: Border.all(
+          color: Colors.white,
+        ),
       ),
       margin: EdgeInsets.only(
         left: defaultMargin,
@@ -55,11 +56,32 @@ class ProductTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  category.toString(),
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 12,
+                  ),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Text(
                   title.toString(),
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: semibold,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  description.toString(),
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 12,
+                    fontWeight: semibold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(
                   height: 6,
@@ -80,6 +102,7 @@ class ProductTile extends StatelessWidget {
                           const Icon(
                             Icons.star,
                             size: 17,
+                            color: Colors.white,
                           ),
                           const SizedBox(
                             width: 5,

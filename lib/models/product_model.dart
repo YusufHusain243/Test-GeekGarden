@@ -3,9 +3,8 @@ class Product {
   String description;
   String category;
   String image;
+  String rate;
   int price;
-  int rate;
-  int count;
 
   Product({
     required this.title,
@@ -14,6 +13,5 @@ class Product {
     required this.image,
     required this.price,
     required this.rate,
-    required this.count,
   });
 }
