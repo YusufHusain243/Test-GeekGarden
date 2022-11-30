@@ -24,7 +24,7 @@ class AppPage {
       binding: EditBinding(),
     ),
     GetPage(
-      name: RouteName.product,
+      name: RouteName.productApi,
       page: () => const ProductApiPage(),
     ),
   ];

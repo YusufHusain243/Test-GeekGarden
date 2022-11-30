@@ -181,7 +181,7 @@ class AddProduct extends StatelessWidget {
                   category: addC.categoryC.text.toString(),
                   nameImage: productC.nameFile,
                   pathImage: productC.pathFile,
-                  price: int.parse(addC.priceC.text),
+                  price: addC.priceC.text.toString(),
                   rate: addC.rateC.text.toString(),
                 ),
               );

@@ -15,7 +15,7 @@ class ProductTile extends StatelessWidget {
   }) : super(key: key);
 
   final String? title;
-  final int? price;
+  final String? price;
   final String? description;
   final String? category;
   final String? image;

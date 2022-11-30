@@ -6,7 +6,7 @@ class Product {
   String nameImage;
   String pathImage;
   String rate;
-  int price;
+  String price;
 
   Product({
     this.id,

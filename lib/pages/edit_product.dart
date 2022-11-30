@@ -199,7 +199,7 @@ class EditProduct extends StatelessWidget {
                   category: editC.categoryC.text.toString(),
                   nameImage: productC.nameFile,
                   pathImage: productC.pathFile,
-                  price: int.parse(editC.priceC.text),
+                  price: editC.priceC.text.toString(),
                   rate: editC.rateC.text.toString(),
                 ),
               );
