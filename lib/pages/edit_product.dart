@@ -189,8 +189,19 @@ class EditProduct extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          ElevatedButton(
-            onPressed: () {
+          TextField(
+            readOnly: true,
+            textAlign: TextAlign.center,
+            decoration: InputDecoration(
+              hintText: 'Submit',
+              hintStyle: primaryTextStyle,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              fillColor: priceColor,
+              filled: true,
+            ),
+            onTap: () {
               productC.edit(
                 Product(
                   id: id,
@@ -204,7 +215,6 @@ class EditProduct extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Submit'),
           ),
         ],
       ),
