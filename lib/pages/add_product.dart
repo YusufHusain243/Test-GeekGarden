@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geek_garden/controllers/add_controller.dart';
 import 'package:geek_garden/models/product_model.dart';
 import 'package:get/get.dart';
@@ -38,7 +39,7 @@ class AddProduct extends StatelessWidget {
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: productC.nameFile == ''
-                      ? 'Pilih File'
+                      ? 'Choose Image'
                       : productC.nameFile,
                   hintStyle: primaryTextStyle,
                   border: OutlineInputBorder(
@@ -82,6 +83,8 @@ class AddProduct extends StatelessWidget {
           TextField(
             controller: addC.priceC,
             style: primaryTextStyle,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               hintText: 'Please Input Price Product',
               hintStyle: secondaryTextStyle,
@@ -151,6 +154,8 @@ class AddProduct extends StatelessWidget {
           TextField(
             controller: addC.rateC,
             style: primaryTextStyle,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               hintText: 'Please Input Rate Product',
               hintStyle: secondaryTextStyle,

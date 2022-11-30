@@ -15,7 +15,6 @@ class ProductPage extends StatelessWidget {
     Widget products() {
       return Obx(
         () => Container(
-          margin: const EdgeInsets.only(top: 14),
           child: productC.products.isEmpty
               ? Center(
                   child: Text(

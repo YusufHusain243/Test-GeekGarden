@@ -12,23 +12,20 @@ class ProductApiPage extends GetView<ProductsApiController> {
   Widget build(BuildContext context) {
     Widget products() {
       return controller.obx(
-        (state) => Container(
-          margin: const EdgeInsets.only(top: 14),
-          child: ListView.builder(
-            padding: EdgeInsets.only(top: defaultMargin),
-            itemCount: state!.length,
-            itemBuilder: (context, index) {
-              return ProductTile(
-                title: state[index]['title'].toString(),
-                price: state[index]['price'].toString(),
-                description: state[index]['description'].toString(),
-                category: state[index]['category'].toString(),
-                image: state[index]['image'].toString(),
-                rate: state[index]['rating']['rate'].toString(),
-                page: 'product_api',
-              );
-            },
-          ),
+        (state) => ListView.builder(
+          padding: EdgeInsets.only(top: defaultMargin),
+          itemCount: state!.length,
+          itemBuilder: (context, index) {
+            return ProductTile(
+              title: state[index]['title'].toString(),
+              price: state[index]['price'].toString(),
+              description: state[index]['description'].toString(),
+              category: state[index]['category'].toString(),
+              image: state[index]['image'].toString(),
+              rate: state[index]['rating']['rate'].toString(),
+              page: 'product_api',
+            );
+          },
         ),
         onEmpty: Text(
           'Data',
