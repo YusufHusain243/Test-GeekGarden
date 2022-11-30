@@ -17,25 +17,31 @@ class ProductPage extends StatelessWidget {
         () => Container(
           margin: const EdgeInsets.only(top: 14),
           child: productC.products.isEmpty
-              ? const Center(
+              ? Center(
                   child: Text(
-                    "Belum ada data",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                    "Data's Empty",
+                    style: primaryTextStyle,
                   ),
                 )
               : ListView.builder(
                   padding: EdgeInsets.only(top: defaultMargin),
                   itemCount: productC.products.length,
                   itemBuilder: (context, index) {
-                    return ProductTile(
-                      title: productC.products[index].title,
-                      price: productC.products[index].price,
-                      description: productC.products[index].description,
-                      category: productC.products[index].category,
-                      image: productC.products[index].image,
-                      rate: productC.products[index].rate,
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(
+                          RouteName.editProduct,
+                          arguments: productC.products[index].id,
+                        );
+                      },
+                      child: ProductTile(
+                        title: productC.products[index].title,
+                        price: productC.products[index].price,
+                        description: productC.products[index].description,
+                        category: productC.products[index].category,
+                        image: productC.products[index].image,
+                        rate: productC.products[index].rate,
+                      ),
                     );
                   },
                 ),

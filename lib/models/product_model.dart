@@ -1,4 +1,5 @@
 class Product {
+  String? id;
   String title;
   String description;
   String category;
@@ -7,6 +8,7 @@ class Product {
   int price;
 
   Product({
+    this.id,
     required this.title,
     required this.description,
     required this.category,
