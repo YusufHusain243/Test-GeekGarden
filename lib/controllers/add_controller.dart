@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class AddController extends GetxController {
+  late TextEditingController titleC;
+  late TextEditingController priceC;
+  late TextEditingController descriptionC;
+  late TextEditingController categoryC;
+  late TextEditingController rateC;
+  late TextEditingController countC;
+
+  @override
+  void onInit() {
+    super.onInit();
+    titleC = TextEditingController();
+    priceC = TextEditingController();
+    descriptionC = TextEditingController();
+    categoryC = TextEditingController();
+    rateC = TextEditingController();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    titleC.dispose();
+    priceC.dispose();
+    descriptionC.dispose();
+    categoryC.dispose();
+    rateC.dispose();
+  }
+}
