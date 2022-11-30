@@ -173,7 +173,7 @@ class EditProduct extends StatelessWidget {
                   description: editC.descriptionC.text.toString(),
                   category: editC.categoryC.text.toString(),
                   image: 'assets/image_shoes.png',
-                  price: int.parse(editC.priceC.text),
+                  price: editC.priceC.text.toString(),
                   rate: editC.rateC.text.toString(),
                 ),
               );

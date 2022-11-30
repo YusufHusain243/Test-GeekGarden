@@ -10,14 +10,16 @@ class ProductTile extends StatelessWidget {
     this.category,
     this.image,
     this.rate,
+    required this.page,
   }) : super(key: key);
 
   final String? title;
-  final int? price;
+  final String? price;
   final String? description;
   final String? category;
   final String? image;
   final String? rate;
+  final String? page;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +43,19 @@ class ProductTile extends StatelessWidget {
               topLeft: Radius.circular(20),
               bottomLeft: Radius.circular(20),
             ),
-            child: Image.asset(
-              'assets/image_shoes.png',
-              width: 120,
-              height: 120,
-              fit: BoxFit.cover,
-            ),
+            child: page == 'product'
+                ? Image.asset(
+                    'assets/image_shoes.png',
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    image!,
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                  ),
           ),
           const SizedBox(
             width: 12,

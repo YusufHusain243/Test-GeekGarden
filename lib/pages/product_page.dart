@@ -41,6 +41,7 @@ class ProductPage extends StatelessWidget {
                         category: productC.products[index].category,
                         image: productC.products[index].image,
                         rate: productC.products[index].rate,
+                        page: 'product',
                       ),
                     );
                   },
@@ -49,9 +50,8 @@ class ProductPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
+    AppBar appbar() {
+      return AppBar(
         title: Text(
           'Products',
           style: primaryTextStyle.copyWith(
@@ -71,7 +71,52 @@ class ProductPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      );
+    }
+
+    SafeArea drawer() {
+      return SafeArea(
+        child: Drawer(
+          backgroundColor: backgroundColor,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              ListTile(
+                title: Text(
+                  'Product',
+                  style: primaryTextStyle.copyWith(
+                    fontWeight: bold,
+                    fontSize: 18,
+                  ),
+                ),
+                onTap: () {
+                  Get.back();
+                  Get.toNamed(RouteName.product);
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'product Api',
+                  style: primaryTextStyle.copyWith(
+                    fontWeight: bold,
+                    fontSize: 18,
+                  ),
+                ),
+                onTap: () {
+                  Get.back();
+                  Get.toNamed(RouteName.productApi);
+                },
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      drawer: drawer(),
+      appBar: appbar(),
       body: products(),
     );
   }
