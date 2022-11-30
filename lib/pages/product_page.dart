@@ -39,7 +39,7 @@ class ProductPage extends StatelessWidget {
                         price: productC.products[index].price,
                         description: productC.products[index].description,
                         category: productC.products[index].category,
-                        image: productC.products[index].image,
+                        image: productC.products[index].pathImage,
                         rate: productC.products[index].rate,
                       ),
                     );

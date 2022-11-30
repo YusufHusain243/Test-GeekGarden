@@ -3,7 +3,8 @@ class Product {
   String title;
   String description;
   String category;
-  String image;
+  String nameImage;
+  String pathImage;
   String rate;
   int price;
 
@@ -12,7 +13,8 @@ class Product {
     required this.title,
     required this.description,
     required this.category,
-    required this.image,
+    required this.nameImage,
+    required this.pathImage,
     required this.price,
     required this.rate,
   });

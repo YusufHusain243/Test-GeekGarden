@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:geek_garden/theme.dart';
 
@@ -41,8 +43,8 @@ class ProductTile extends StatelessWidget {
               topLeft: Radius.circular(20),
               bottomLeft: Radius.circular(20),
             ),
-            child: Image.asset(
-              'assets/image_shoes.png',
+            child: Image.file(
+              File(image.toString()),
               width: 120,
               height: 120,
               fit: BoxFit.cover,

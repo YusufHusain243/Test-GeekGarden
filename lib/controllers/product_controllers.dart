@@ -1,9 +1,12 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:geek_garden/models/product_model.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController with StateMixin<String?> {
   var products = List<Product>.empty().obs;
+  String nameFile = '';
+  String pathFile = '';
 
   void snackBarError(String msg) {
     Get.snackbar(
@@ -49,7 +52,8 @@ class ProductController extends GetxController with StateMixin<String?> {
       getProduct.price = product.price;
       getProduct.description = product.description;
       getProduct.category = product.category;
-      getProduct.image = product.image;
+      getProduct.nameImage = product.nameImage;
+      getProduct.pathImage = product.pathImage;
       getProduct.rate = product.rate;
       products.refresh();
       change(null, status: RxStatus.success());
@@ -81,5 +85,17 @@ class ProductController extends GetxController with StateMixin<String?> {
       },
       textCancel: "No",
     );
+  }
+
+  void pickFile() async {
+    final result = await FilePicker.platform.pickFiles();
+    if (result != null) {
+      PlatformFile file = result.files.first;
+      nameFile = file.name;
+      pathFile = file.path!;
+      update(['image']);
+    } else {
+      return null;
+    }
   }
 }

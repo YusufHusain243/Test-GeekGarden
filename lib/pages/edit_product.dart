@@ -20,7 +20,6 @@ class EditProduct extends StatelessWidget {
     editC.priceC.text = product.price.toString();
     editC.descriptionC.text = product.description;
     editC.categoryC.text = product.category;
-    editC.imageC.text = product.image;
     editC.rateC.text = product.rate;
 
     return Scaffold(
@@ -49,6 +48,32 @@ class EditProduct extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(defaultMargin),
         children: [
+          GetBuilder<ProductController>(
+            id: 'image',
+            builder: (_) {
+              return TextField(
+                readOnly: true,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  hintText: product.nameImage == productC.nameFile
+                      ? product.nameImage
+                      : productC.nameFile,
+                  hintStyle: primaryTextStyle,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  fillColor: const Color.fromARGB(255, 94, 94, 94),
+                  filled: true,
+                ),
+                onTap: () {
+                  productC.pickFile();
+                },
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           TextField(
             controller: editC.titleC,
             style: primaryTextStyle,
@@ -172,7 +197,8 @@ class EditProduct extends StatelessWidget {
                   title: editC.titleC.text.toString(),
                   description: editC.descriptionC.text.toString(),
                   category: editC.categoryC.text.toString(),
-                  image: 'assets/image_shoes.png',
+                  nameImage: productC.nameFile,
+                  pathImage: productC.pathFile,
                   price: int.parse(editC.priceC.text),
                   rate: editC.rateC.text.toString(),
                 ),

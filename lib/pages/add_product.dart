@@ -30,6 +30,32 @@ class AddProduct extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(defaultMargin),
         children: [
+          GetBuilder<ProductController>(
+            id: 'image',
+            builder: (_) {
+              return TextField(
+                readOnly: true,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  hintText: productC.nameFile == ''
+                      ? 'Pilih File'
+                      : productC.nameFile,
+                  hintStyle: primaryTextStyle,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  fillColor: const Color.fromARGB(255, 94, 94, 94),
+                  filled: true,
+                ),
+                onTap: () {
+                  productC.pickFile();
+                },
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           TextField(
             controller: addC.titleC,
             style: primaryTextStyle,
@@ -153,7 +179,8 @@ class AddProduct extends StatelessWidget {
                   title: addC.titleC.text.toString(),
                   description: addC.descriptionC.text.toString(),
                   category: addC.categoryC.text.toString(),
-                  image: 'assets/image_shoes.png',
+                  nameImage: productC.nameFile,
+                  pathImage: productC.pathFile,
                   price: int.parse(addC.priceC.text),
                   rate: addC.rateC.text.toString(),
                 ),

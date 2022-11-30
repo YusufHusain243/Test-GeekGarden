@@ -6,7 +6,6 @@ class EditController extends GetxController {
   late TextEditingController priceC;
   late TextEditingController descriptionC;
   late TextEditingController categoryC;
-  late TextEditingController imageC;
   late TextEditingController rateC;
   late TextEditingController countC;
 
@@ -17,7 +16,6 @@ class EditController extends GetxController {
     priceC = TextEditingController();
     descriptionC = TextEditingController();
     categoryC = TextEditingController();
-    imageC = TextEditingController();
     rateC = TextEditingController();
   }
 
@@ -28,7 +26,6 @@ class EditController extends GetxController {
     priceC.dispose();
     descriptionC.dispose();
     categoryC.dispose();
-    imageC.dispose();
     rateC.dispose();
   }
 }
